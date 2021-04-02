@@ -125,4 +125,17 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+
+public function actionGuitars(){
+    $model= new appmodelsGuitars();
+    if($model -> load(Yii::$app->request->post())){
+        if($model->validate()){
+            return;
+        }
+    }
+    return $this->render('guitars',[
+        'model' => $model,
+    ]);
+}
+
 }
